@@ -1,0 +1,8 @@
+name: CKEditor CodeSnippet
+type: module
+description: "Adds the CodeSnippet plugin to CKEditor."
+package: Other
+core: 8.x
+
+dependencies:
+  - ckeditor
