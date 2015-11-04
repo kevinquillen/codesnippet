@@ -26,7 +26,7 @@
         }
 
         var output = '';
-        output += Drupal.t('@style active', {'@style': style});
+        output += Drupal.t('@style', {'@style': style});
         return output;
       });
     }
