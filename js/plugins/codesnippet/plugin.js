@@ -9,7 +9,7 @@
 
 'use strict';
 
-( function(CKEDITOR) {
+( function($, Drupal, drupalSettings, CKEDITOR) {
 	var isBrowserSupported = !CKEDITOR.env.ie || CKEDITOR.env.version > 8;
 
 	CKEDITOR.plugins.add( 'codesnippet', {
@@ -49,7 +49,6 @@
 		},
 
 		onLoad: function() {
-			console.log(this.path);
 			CKEDITOR.dialog.add( 'codeSnippet', this.path + 'dialogs/codesnippet.js' );
 		},
 
@@ -416,7 +415,7 @@
 			return ret;
 		}
 	}
-} )();
+} )($, Drupal, drupalSettings, CKEDITOR);
 
 /**
  * A CSS class of the `<code>` element used internally for styling
