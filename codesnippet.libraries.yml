@@ -1,0 +1,10 @@
+codesnippet.admin:
+  version: VERSION
+  js:
+    js/codesnippet.admin.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupal.vertical-tabs
+    - core/drupalSettings
