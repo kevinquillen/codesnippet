@@ -19,6 +19,7 @@ use Drupal\Core\Url;
  * @CKEditorPlugin(
  *   id = "codesnippet",
  *   label = @Translation("CodeSnippet"),
+ *   module = "ckeditor"
  * )
  */
 class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurableInterface {
@@ -33,10 +34,7 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
    * {@inheritdoc}
    */
   public function getConfig(Editor $editor) {
-    return array(
-      'codeSnippet_dialogTitleAdd' => t('Insert Code'),
-      'codeSnippet_dialogTitleEdit' => t('Edit Code'),
-    );
+    return array();
   }
 
   /**
@@ -46,7 +44,7 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
     return array(
       'CodeSnippet' => array(
         'label' => t('CodeSnippet'),
-        'image' => drupal_get_path('module', 'codesnippet') . '/js/plugins/codesnippet/codesnippet.png',
+        'image' => drupal_get_path('module', 'codesnippet') . '/js/plugins/codesnippet/icons/codesnippet.png',
       ),
     );
   }
@@ -55,16 +53,15 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state, Editor $editor) {
-    $form_state->loadInclude('editor', 'admin.inc');
-
+    $settings = $editor->getSettings();
     $styles = $this->getStyles();
 
     $form['highlight_style'] = array(
       '#type' => 'select',
-      '#title' => 'Highlightjs Style',
+      '#title' => 'highlight.js Style',
       '#description' => t('Select a style to apply to all highlighted code snippets. You can preview the styles at !link.', array('!link' => \Drupal::l('https://highlightjs.org/static/demo', Url::fromUri('https://highlightjs.org/static/demo/')))),
       '#options' => $styles,
-      '#default_value' => !empty($form_state->storage['editor']->settings['plugins']['codesnippet']['highlight_style']) ? $form_state->storage['editor']->settings['plugins']['codesnippet']['highlight_style'] : 'arta.css',
+      '#default_value' => !empty($settings['plugins']['codesnippet']['highlight_style']) ? $settings['plugins']['codesnippet']['highlight_style'] : 'arta.css',
     );
 
     return $form;
