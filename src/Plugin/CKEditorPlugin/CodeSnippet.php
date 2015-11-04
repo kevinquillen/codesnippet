@@ -56,6 +56,8 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
     $settings = $editor->getSettings();
     $styles = $this->getStyles();
 
+    $form['#attached']['library'][] = 'codesnippet/codesnippet.admin';
+
     $form['highlight_style'] = array(
       '#type' => 'select',
       '#title' => 'highlight.js Style',
