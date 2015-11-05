@@ -34,7 +34,11 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
    * {@inheritdoc}
    */
   public function getConfig(Editor $editor) {
-    return array();
+    $settings = $editor->getSettings();
+
+    return array(
+      'codeSnippet_theme' => !empty($settings['plugins']['codesnippet']['highlight_style']) ? $settings['plugins']['codesnippet']['highlight_style'] : 'default',
+    );
   }
 
   /**
