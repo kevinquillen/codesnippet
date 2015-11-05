@@ -37,7 +37,7 @@ function codesnippet_preprocess_html(&$variables) {
   $editors = $entity->loadMultiple();
 
   foreach ($editors as $editor) {
-    if ($editor->editor != 'ckeditor') {
+    if ($editor->getEditor() != 'ckeditor') {
       // bail, as the plugin only works for CKEditor.
       continue;
     }
