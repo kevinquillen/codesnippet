@@ -63,7 +63,7 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
       '#title' => 'highlight.js Style',
       '#description' => t('Select a style to apply to all highlighted code snippets. You can preview the styles at !link.', array('!link' => \Drupal::l('https://highlightjs.org/static/demo', Url::fromUri('https://highlightjs.org/static/demo/')))),
       '#options' => $styles,
-      '#default_value' => !empty($settings['plugins']['codesnippet']['highlight_style']) ? $settings['plugins']['codesnippet']['highlight_style'] : 'arta.css',
+      '#default_value' => !empty($settings['plugins']['codesnippet']['highlight_style']) ? $settings['plugins']['codesnippet']['highlight_style'] : 'arta',
     );
 
     return $form;
@@ -77,7 +77,8 @@ class CodeSnippet extends CKEditorPluginBase implements CKEditorPluginConfigurab
     $style_options = array();
 
     foreach ($styles as $stylesheet) {
-      $style_options[$stylesheet] = $stylesheet;
+      $name = str_replace('.css', '', $stylesheet);
+      $style_options[$name] = $name;
     }
 
     return $style_options;
