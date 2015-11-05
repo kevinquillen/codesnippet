@@ -8,3 +8,37 @@ codesnippet.admin:
     - core/jquery.once
     - core/drupal.vertical-tabs
     - core/drupalSettings
+
+codesnippet.highlightjs:
+  version: VERSION
+  js:
+    js/plugins/codesnippet/lib/highlight/highlight.pack.js: {}
+    js/codesnippet.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+codesnippet.style.arta:
+  version: VERSION
+  css:
+    theme:
+      js/plugins/codesnippet/lib/highlight/styles/arta.css: {}
+
+codesnippet.style.ascetic:
+  version: VERSION
+  css:
+    theme:
+      js/plugins/codesnippet/lib/highlight/styles/ascetic.css: {}
+
+codesnippet.style.github:
+  version: VERSION
+  css:
+    theme:
+      js/plugins/codesnippet/lib/highlight/styles/github.css: {}
+
+codesnippet.style.monokai:
+  version: VERSION
+  css:
+    theme:
+      js/plugins/codesnippet/lib/highlight/styles/monokai.css: {}
